@@ -1,36 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Puzzle Animal Game!</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <link rel="stylesheet" href="./src/vendor/normalize.css">
-  </head>
-  <body class="page">
-    <div class="page__content">
-      <header class="header">
-        <h1 class="header__title">Puzzle Animal Game!</h1>
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item"><button id="restart" class="btn">Restart</button></li>
-            <li class="nav__item"><button id="mute" class="btn">Sound 🔉</button></li>
-          </ul>
-        </nav>
-        <div class="header__info">
-          <a href="https://github.com/DKMFzF/puzzle-animal-game-CA" class="header__link">GitHub</a>
-          <a href="https://github.com/DKMFzF" class="header__link header__text">@dkmfzf</a>
-        </div>
-      </header>
-      
-      <main id="app" class="game-container"></main>
-    </div>
-    <div class="timer">
-      <div id="timer" class="timer__text timer">Time: 0.00 s</div>
-      <div id="last-try" class="timer__text timer__last-try">Last Try: 0.00 s</div>
-    </div>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Puzzle Animal Game! - Fun and Interactive Animal Puzzle Game</title>
+		<meta
+			name="description"
+			content="Play the Puzzle Animal Game! A fun and interactive game where you drag and drop animals to their correct spots. Perfect for kids and adults alike."
+		/>
+		<meta
+			name="keywords"
+			content="puzzle game, animal game, drag and drop, kids game, interactive game"
+		/>
+		<meta name="author" content="DKMFzF" />
+		<meta property="og:title" content="Puzzle Animal Game!" />
+		<meta
+			property="og:description"
+			content="Play the Puzzle Animal Game! A fun and interactive game where you drag and drop animals to their correct spots."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://yourwebsite.com" />
+		<meta
+			property="og:image"
+			content="https://yourwebsite.com/images/og-image.jpg"
+		/>
+		<meta property="og:site_name" content="Puzzle Animal Game!" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Puzzle Animal Game!" />
+		<meta
+			name="twitter:description"
+			content="Play the Puzzle Animal Game! A fun and interactive game where you drag and drop animals to their correct spots."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://yourwebsite.com/images/twitter-image.jpg"
+		/>
+		<meta name="twitter:site" content="@dkmfzf" />
+		<meta name="twitter:creator" content="@dkmfzf" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+		<link rel="canonical" href="https://puzzle-animal-game.netlify.app/" />
+		<link rel="stylesheet" href="/src/styles.css" />
+		<link rel="stylesheet" href="./src/vendor/normalize.css" />
+		<meta name="color-scheme" content="light dark" />
+		<meta
+			name="theme-color"
+			content="#ffffff"
+			media="(prefers-color-scheme: light)"
+		/>
+		<meta
+			name="theme-color"
+			content="#000000"
+			media="(prefers-color-scheme: dark)"
+		/>
+	</head>
+	<body class="page">
+		<div class="page__content">
+			<header class="header">
+				<h1 class="header__title">Puzzle Animal Game!</h1>
+				<nav class="nav">
+					<ul class="nav__list">
+						<li class="nav__item">
+							<button id="restart" class="btn">Restart</button>
+						</li>
+						<li class="nav__item">
+							<button id="mute" class="btn">Sound 🔉</button>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__info">
+					<a
+						href="https://github.com/DKMFzF/puzzle-animal-game-CA"
+						class="header__link"
+						>GitHub</a
+					>
+					<a href="https://github.com/DKMFzF" class="header__link header__text"
+						>@dkmfzf</a
+					>
+				</div>
+			</header>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+			<main id="app" class="game-container"></main>
+		</div>
+		<div class="timer">
+			<div id="timer" class="timer__text timer">Time: 0.00 s</div>
+			<div id="last-try" class="timer__text timer__last-try">
+				Last Try: 0.00 s
+			</div>
+		</div>
+
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>
