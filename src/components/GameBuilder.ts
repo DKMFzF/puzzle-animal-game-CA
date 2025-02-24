@@ -1,4 +1,3 @@
-
 import Game from './Game.ts'
 import ImageLoaderService from '../services/ImageLoaderService.ts'
 import { AnimalPromiseImages } from '../types/image.ts'
