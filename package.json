@@ -21,11 +21,14 @@
   },
   "homepage": "https://github.com/DKMFzF/puzzle-game#readme",
   "devDependencies": {
-    "typescript": "~5.7.2",
     "@typescript-eslint/eslint-plugin": "^8.24.1",
     "@typescript-eslint/parser": "^8.24.1",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.1",
+    "typescript": "~5.7.2",
     "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "konva": "^9.3.18"
   }
 }
