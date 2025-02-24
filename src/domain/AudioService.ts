@@ -1,6 +1,6 @@
 // @ts-ignore
 import { Howl } from 'howler'
-import AnimalEventObserver, { EAnimalEvents } from '../types/AnimalEventObserver.ts'
+import AnimalEventObserver, { EAnimalEvents } from '../infrastructure/types/AnimalEventObserver.ts'
 
 type ISound = {
   [trackName: string]: Howl

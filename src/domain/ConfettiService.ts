@@ -1,6 +1,6 @@
 // @ts-ignore
 import confetti, { Options } from 'canvas-confetti'
-import { randomInterval } from '../helpers/randomInterval.ts'
+import { randomInterval } from '../infrastructure/helpers/randomInterval.ts'
 
 export default class ConfettiService {
   private readonly options: Options

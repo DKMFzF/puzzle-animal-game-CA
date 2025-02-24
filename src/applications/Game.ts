@@ -1,8 +1,8 @@
-import KonvaFactory from '../factories/KonvaFactory.ts'
-import { AnimalsWithImages } from '../types/data.ts'
+import KonvaFactory from '../adapters/KonvaFactory.ts'
+import { AnimalsWithImages } from '../infrastructure/types/data.ts'
 import AnimalManager from './AnimalManager.ts'
-import AnimalEventObserver, { EAnimalEvents } from '../types/AnimalEventObserver.ts'
-import AudioService from '../services/AudioService.ts'
+import AnimalEventObserver, { EAnimalEvents } from '../infrastructure/types/AnimalEventObserver.ts'
+import AudioService from '../domain/AudioService.ts'
 import { Layer } from 'konva/lib/Layer'
 
 export default class Game implements AnimalEventObserver {

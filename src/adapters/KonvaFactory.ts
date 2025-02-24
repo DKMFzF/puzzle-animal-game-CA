@@ -1,10 +1,10 @@
 import Konva from 'konva'
-import { AnimalWithImages } from '../types/data.ts'
-import { randomInterval } from '../helpers/randomInterval.ts'
+import { AnimalWithImages } from '../infrastructure/types/data.ts'
+import { randomInterval } from '../infrastructure/helpers/randomInterval.ts'
 import { Image } from 'konva/lib/shapes/Image'
 import { Layer } from 'konva/lib/Layer'
 import { Stage } from 'konva/lib/Stage'
-import CanvasSizeService from '../services/CanvasSizeService.ts'
+import CanvasSizeService from '../domain/CanvasSizeService.ts'
 
 export default class KonvaFactory {
   constructor(

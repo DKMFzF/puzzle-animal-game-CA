@@ -1,9 +1,9 @@
-import CursorManager from '../helpers/CursorManager.ts'
+import CursorManager from '../infrastructure/helpers/CursorManager.ts'
 import { Image } from 'konva/lib/shapes/Image'
 import AnimalEventObserver, {
   AnimalEventSubject,
   EAnimalEvents,
-} from '../types/AnimalEventObserver.ts'
+} from '../infrastructure/types/AnimalEventObserver.ts'
 
 export default class AnimalManager implements AnimalEventSubject {
   private observers: AnimalEventObserver[] = []

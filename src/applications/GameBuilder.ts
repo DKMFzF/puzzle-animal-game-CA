@@ -1,10 +1,10 @@
 import Game from './Game.ts'
-import ImageLoaderService from '../services/ImageLoaderService.ts'
-import { AnimalPromiseImages } from '../types/image.ts'
-import { AnimalsData, AnimalsWithImages, ImageData, SoundsData } from '../types/data.ts'
-import KonvaFactory from '../factories/KonvaFactory.ts'
-import CanvasSizeService from '../services/CanvasSizeService.ts'
-import AudioService from '../services/AudioService.ts'
+import ImageLoaderService from '../domain/ImageLoaderService.ts'
+import { AnimalPromiseImages } from '../infrastructure/types/image.ts'
+import { AnimalsData, AnimalsWithImages, ImageData, SoundsData } from '../infrastructure/types/data.ts'
+import KonvaFactory from '../adapters/KonvaFactory.ts'
+import CanvasSizeService from '../domain/CanvasSizeService.ts'
+import AudioService from '../domain/AudioService.ts'
 
 export default class GameBuilder {
   private backgroundImage: Promise<HTMLImageElement> | null = null
