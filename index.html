@@ -20,13 +20,17 @@
         </nav>
         <div class="header__info">
           <a href="https://github.com/DKMFzF/puzzle-animal-game-CA" class="header__link">GitHub</a>
-          <a href="https://github.com/DKMFzF" class="header__link header__text">dkmfzf</a>
+          <a href="https://github.com/DKMFzF" class="header__link header__text">@dkmfzf</a>
         </div>
       </header>
       
       <main id="app" class="game-container"></main>
     </div>
-    <div id="timer" class="timer">Time: 0.00 second</div> 
+    <div class="timer">
+      <div id="timer" class="timer__text timer">Time: 0.00 s</div>
+      <div id="last-try" class="timer__text timer__last-try">Last Try: 0.00 s</div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

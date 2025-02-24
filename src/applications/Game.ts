@@ -13,8 +13,9 @@ export default class Game implements AnimalEventObserver {
   private endGameCallback = (): void => {}
   private stopwatch: Stopwatch
   private timerElement: HTMLElement | null
+  private lastTryElement: HTMLElement | null
   private timerInterval: number | null = null
-  private isGameStarted: boolean = false // Флаг для отслеживания начала игры
+  private isGameStarted: boolean = false
 
   constructor(
     private readonly konvaFactory: KonvaFactory,
@@ -34,11 +35,15 @@ export default class Game implements AnimalEventObserver {
 
     this.stopwatch = new Stopwatch()
     this.timerElement = document.getElementById('timer')
+    this.lastTryElement = document.getElementById('last-try') // Элемент для отображения последнего времени
+
+    // Загружаем последнее время из localStorage при инициализации
+    this.loadLastTryTime()
   }
 
   start() {
     this.score = Object.keys(this.animalsWithImages).length
-    this.isGameStarted = false // Игра еще не начата
+    this.isGameStarted = false
 
     for (let animalName in this.animalsWithImages) {
       const animalData = this.animalsWithImages[animalName]
@@ -63,9 +68,8 @@ export default class Game implements AnimalEventObserver {
     this.animalDropLayer.destroyChildren()
     this.animalLayer.destroyChildren()
     this.stopwatch.reset()
-    this.isGameStarted = false // Сбрасываем флаг при рестарте
+    this.isGameStarted = false
 
-    // Останавливаем интервал при рестарте
     if (this.timerInterval) {
       clearInterval(this.timerInterval)
       this.timerInterval = null
@@ -85,16 +89,19 @@ export default class Game implements AnimalEventObserver {
 
     this.stopwatch.stop()
 
-    // Останавливаем интервал при завершении игры
     if (this.timerInterval) {
       clearInterval(this.timerInterval)
       this.timerInterval = null
     }
 
+    const elapsedTime = this.stopwatch.getElapsedTime() / 1000
+
     if (this.timerElement) {
-      const elapsedTime = this.stopwatch.getElapsedTime() / 1000
-      this.timerElement.textContent = `Время: ${elapsedTime.toFixed(2)} сек`
+      this.timerElement.textContent = `Time: ${elapsedTime.toFixed(2)} s`
     }
+
+    // Сохраняем время в localStorage
+    this.saveLastTryTime(elapsedTime)
 
     this.audioService.playWin()
     this.endGameCallback()
@@ -111,7 +118,26 @@ export default class Game implements AnimalEventObserver {
   private updateTimer() {
     if (this.timerElement) {
       const elapsedTime = this.stopwatch.getElapsedTime() / 1000
-      this.timerElement.textContent = `Time: ${elapsedTime.toFixed(2)} second`
+      this.timerElement.textContent = `Time: ${elapsedTime.toFixed(2)} s`
+    }
+  }
+
+  private saveLastTryTime(time: number) {
+    localStorage.setItem('lastTryTime', time.toFixed(2)) // Сохраняем время в localStorage
+    this.updateLastTryDisplay() // Обновляем отображение последнего времени
+  }
+
+  private loadLastTryTime() {
+    const lastTryTime = localStorage.getItem('lastTryTime')
+    if (lastTryTime && this.lastTryElement) {
+      this.lastTryElement.textContent = `Last Try: ${lastTryTime} s`
+    }
+  }
+
+  private updateLastTryDisplay() {
+    const lastTryTime = localStorage.getItem('lastTryTime')
+    if (lastTryTime && this.lastTryElement) {
+      this.lastTryElement.textContent = `Last Try: ${lastTryTime} s`
     }
   }
 

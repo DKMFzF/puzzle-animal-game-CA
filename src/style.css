@@ -20,7 +20,7 @@
   margin-inline: 30px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -124,13 +124,19 @@
   margin: 0;
 }
 
-/* .timer {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+.timer {
   padding: 10px;
-  border-radius: 5px;
-} */
+  border-radius: 35px;
+  background-color: white;
+  color: black;
+}
+
+.timer__text {
+  display: inline;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.timer__last-try {
+  margin-inline-start: 10px;
+}
