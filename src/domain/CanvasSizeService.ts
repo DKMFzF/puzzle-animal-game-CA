@@ -4,21 +4,21 @@ export default class CanvasSizeService {
   private readonly scale: number
 
   constructor(
-    windowWidth: number,
-    windowHeight: number,
+    containerWidth: number,
+    containerHeight: number,
     backgroundWidth: number,
     backgroundHeight: number,
   ) {
     const imageAspect = backgroundWidth / backgroundHeight
-    const windowAspect = windowWidth / windowHeight
+    const containerAspect = containerWidth / containerHeight
 
     let newWidth = 0,
       newHeight = 0
-    if (imageAspect > windowAspect) {
-      newWidth = windowWidth
+    if (imageAspect > containerAspect) {
+      newWidth = containerWidth
       newHeight = newWidth / imageAspect
     } else {
-      newHeight = windowHeight
+      newHeight = containerHeight
       newWidth = newHeight * imageAspect
     }
 
@@ -27,6 +27,7 @@ export default class CanvasSizeService {
 
     this.scale = newWidth / backgroundWidth
   }
+
   getWidth(): number {
     return this.width
   }

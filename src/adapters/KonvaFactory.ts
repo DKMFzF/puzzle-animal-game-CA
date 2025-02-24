@@ -11,6 +11,7 @@ export default class KonvaFactory {
     private readonly sizeService: CanvasSizeService,
     private readonly backgroundImage: HTMLImageElement,
   ) {}
+  
   createStage(): Stage {
     return new Konva.Stage({
       container: 'app',

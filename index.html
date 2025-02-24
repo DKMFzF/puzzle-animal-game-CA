@@ -7,25 +7,24 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
-  <body>
-    <header>
-      <h1>Puzzle Animal Game!</h1>
-    </header>
-    
-    <nav>
-      <ul>
-        <li><button id="restart">Restart</button></li>
-        <li><button id="mute">Sound 🔉</button></li>
-      </ul>
-    </nav>
-    
-    <main id="app"></main>
-    
-    <footer>
-      <a href="https://github.com/DKMFzF/puzzle-animal-game-CA">GitHub</a>
-      <p>dkmfzf</p>
-    </footer>
-    
+  <body class="page">
+    <div class="page__content">
+      <header class="header">
+        <h1 class="header__title">Puzzle Animal Game!</h1>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><button id="restart" class="btn">Restart</button></li>
+            <li class="nav__item"><button id="mute" class="btn">Sound 🔉</button></li>
+          </ul>
+        </nav>
+        <div class="header__info">
+          <a href="https://github.com/DKMFzF/puzzle-animal-game-CA" class="header__link">GitHub</a>
+          <a href="https://github.com/DKMFzF" class="header__link header__text">dkmfzf</a>
+        </div>
+      </header>
+      
+      <main id="app" class="game-container"></main>
+    </div>    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

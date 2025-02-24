@@ -50,7 +50,7 @@ export default class GameBuilder {
   async build(): Promise<Game> {
     const backgroundImage =
       this.backgroundImage !== null ? await this.backgroundImage : new Image()
-
+  
     const animalsWithImages: AnimalsWithImages = {}
     for (const animalName in this.animalImages) {
       const animalImage = this.animalImages[animalName]
@@ -59,7 +59,7 @@ export default class GameBuilder {
         animalImage.glow,
         animalImage.drop,
       ])
-
+  
       animalsWithImages[animalName] = {
         ...this.dataAnimals[animalName],
         images: {
@@ -69,15 +69,19 @@ export default class GameBuilder {
         },
       }
     }
-
+  
+    const container = document.getElementById('app')
+    const containerWidth = container?.clientWidth || window.innerWidth
+    const containerHeight = container?.clientHeight || window.innerHeight
+  
     const canvasSizeService = new CanvasSizeService(
-      window.innerWidth,
-      window.innerHeight,
+      containerWidth,
+      containerHeight,
       backgroundImage.width,
       backgroundImage.height,
     )
     const konvaFactory = new KonvaFactory(canvasSizeService, backgroundImage)
-
+  
     return new Game(konvaFactory, this.audioService, animalsWithImages)
   }
 }
