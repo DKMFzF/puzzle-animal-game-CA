@@ -4,6 +4,7 @@
 </p>
 
 ![app-screen](./docs/app_screen.png)
+
 [Дока на русском](./docs/README.ru.md)
 
 ## Project structure
