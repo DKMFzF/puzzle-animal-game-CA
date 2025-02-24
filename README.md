@@ -63,3 +63,9 @@ A pure architecture organizes a system in the form of concentric layers, where t
 #### The detailed diagram of the project is small
 
 ![uml](./docs/uml.png)
+
+## Lib in the project
+
+- [Konva](https://konvajs.org/)
+- [howler](https://howlerjs.com/)
+- [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)

@@ -62,3 +62,10 @@ yarn build
 #### Подробная схема проекта небольшая
 
 ![uml](./uml.png)
+
+
+## Библиотеки в проекте
+
+- [Konva](https://konvajs.org/)
+- [howler](https://howlerjs.com/)
+- [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)
