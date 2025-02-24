@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puzzle Animal Game!</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="./src/vendor/normalize.css">
   </head>
   <body class="page">
     <div class="page__content">
@@ -24,7 +25,8 @@
       </header>
       
       <main id="app" class="game-container"></main>
-    </div>    
+    </div>
+    <div id="timer" class="timer">Time: 0.00 second</div> 
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
