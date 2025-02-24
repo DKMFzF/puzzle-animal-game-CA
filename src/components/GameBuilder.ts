@@ -1,13 +1,29 @@
+
 import Game from './Game.ts'
 import ImageLoaderService from '../services/ImageLoaderService.ts'
 import { AnimalPromiseImages } from '../types/image.ts'
-import { AnimalsData, ImageData } from '../types/data.ts'
+import { AnimalsData, AnimalsWithImages, ImageData, SoundsData } from '../types/data.ts'
+import KonvaFactory from '../factories/KonvaFactory.ts'
+import CanvasSizeService from '../services/CanvasSizeService.ts'
+import AudioService from '../services/AudioService.ts'
 
 export default class GameBuilder {
   private backgroundImage: Promise<HTMLImageElement> | null = null
   private animalImages: AnimalPromiseImages = {}
 
-  constructor(private readonly imageLoaderService: ImageLoaderService) {}
+  constructor(
+    private readonly imageLoaderService: ImageLoaderService,
+    private readonly audioService: AudioService,
+    private readonly dataAnimals: AnimalsData,
+  ) {}
+
+  loadSounds(soundData: SoundsData) {
+    for (const trackName in soundData) {
+      this.audioService.load(trackName, soundData[trackName])
+    }
+
+    return this
+  }
 
   loadBackground(dataBackground: ImageData): GameBuilder {
     this.backgroundImage = this.imageLoaderService.load(
@@ -19,9 +35,9 @@ export default class GameBuilder {
     return this
   }
 
-  loadImageAnimals(dataAnimals: AnimalsData): GameBuilder {
-    for (const animalName in dataAnimals) {
-      const animal = dataAnimals[animalName]
+  loadImageAnimals(): GameBuilder {
+    for (const animalName in this.dataAnimals) {
+      const animal = this.dataAnimals[animalName]
       this.animalImages[animalName] = {
         origin: this.imageLoaderService.load(animal.src, animal.width, animal.height),
         glow: this.imageLoaderService.load(animal.glow, animal.width, animal.height),
@@ -31,16 +47,38 @@ export default class GameBuilder {
 
     return this
   }
+
   async build(): Promise<Game> {
     const backgroundImage =
       this.backgroundImage !== null ? await this.backgroundImage : new Image()
-    let sources = {
-      beach: backgroundImage,
-      lion: await this.animalImages['monkey'].origin,
-      lion_glow: await this.animalImages['monkey'].glow,
-      lion_black: await this.animalImages['monkey'].drop,
+
+    const animalsWithImages: AnimalsWithImages = {}
+    for (const animalName in this.animalImages) {
+      const animalImage = this.animalImages[animalName]
+      const [origin, glow, drop] = await Promise.all([
+        animalImage.origin,
+        animalImage.glow,
+        animalImage.drop,
+      ])
+
+      animalsWithImages[animalName] = {
+        ...this.dataAnimals[animalName],
+        images: {
+          origin,
+          glow,
+          drop,
+        },
+      }
     }
 
-    return new Game(sources)
+    const canvasSizeService = new CanvasSizeService(
+      window.innerWidth,
+      window.innerHeight,
+      backgroundImage.width,
+      backgroundImage.height,
+    )
+    const konvaFactory = new KonvaFactory(canvasSizeService, backgroundImage)
+
+    return new Game(konvaFactory, this.audioService, animalsWithImages)
   }
 }

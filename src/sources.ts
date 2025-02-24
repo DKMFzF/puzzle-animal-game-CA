@@ -1,9 +1,16 @@
-import { AnimalsData } from './types/data.ts'
+import { AnimalsData, ImageData, SoundsData } from './types/data.ts'
 
-const dataBackground = {
+const dataBackground: ImageData = {
   src: 'background.svg',
   width: 750,
   height: 500,
+}
+
+const soundsData: Readonly<SoundsData> = {
+  'pop-up-on': 'pop-up-on.mp3',
+  'pop-up-off': 'pop-up-off.mp3',
+  'pop-down': 'pop-down.mp3',
+  win: 'kids-cheering.mp3',
 }
 
 const dataAnimals: AnimalsData = {
@@ -25,12 +32,12 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'bear-glow.svg',
-    width: 0,
-    height: 0,
+    width: 203,
+    height: 160,
     drop: {
       src: 'bear-drop.svg',
-      x: 0,
-      y: 0,
+      x: 83,
+      y: 258,
     },
   },
   bird: {
@@ -38,12 +45,12 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'bird-glow.svg',
-    width: 0,
-    height: 0,
+    width: 49,
+    height: 46,
     drop: {
       src: 'bird-drop.svg',
-      x: 0,
-      y: 0,
+      x: 473,
+      y: 245,
     },
   },
   deer: {
@@ -51,12 +58,12 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'deer-glow.svg',
-    width: 0,
-    height: 0,
+    width: 170,
+    height: 220,
     drop: {
       src: 'deer-drop.svg',
-      x: 0,
-      y: 0,
+      x: 413,
+      y: 204,
     },
   },
   lion: {
@@ -64,12 +71,12 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'lion-glow.svg',
-    width: 0,
-    height: 0,
+    width: 169,
+    height: 245,
     drop: {
       src: 'lion-drop.svg',
-      x: 0,
-      y: 0,
+      x: 267,
+      y: 196,
     },
   },
   rabbit: {
@@ -77,12 +84,12 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'rabbit-glow.svg',
-    width: 0,
-    height: 0,
+    width: 94,
+    height: 128,
     drop: {
       src: 'rabbit-drop.svg',
-      x: 0,
-      y: 0,
+      x: 181,
+      y: 305,
     },
   },
   squirrel: {
@@ -90,14 +97,14 @@ const dataAnimals: AnimalsData = {
     x: 0,
     y: 0,
     glow: 'squirrel-glow.svg',
-    width: 0,
-    height: 0,
+    width: 87,
+    height: 86,
     drop: {
       src: 'squirrel-drop.svg',
-      x: 0,
-      y: 0,
+      x: 412,
+      y: 351,
     },
   },
 }
 
-export { dataBackground, dataAnimals }
+export { dataBackground, dataAnimals, soundsData }
