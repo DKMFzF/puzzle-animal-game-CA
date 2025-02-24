@@ -1,17 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puzzle Animal Game!</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <aside id="menu">
-      <button id='restart'>Restart</button>
-      <button id='mute'>Sound 🔉</button>
-    </aside>
-    <div id="app"></div>
+    <header>
+      <h1>Puzzle Animal Game!</h1>
+    </header>
+    
+    <nav>
+      <ul>
+        <li><button id="restart">Restart</button></li>
+        <li><button id="mute">Sound 🔉</button></li>
+      </ul>
+    </nav>
+    
+    <main id="app"></main>
+    
+    <footer>
+      <a href="https://github.com/DKMFzF/puzzle-animal-game-CA">GitHub</a>
+      <p>dkmfzf</p>
+    </footer>
+    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
